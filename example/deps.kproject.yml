@@ -1,0 +1,5 @@
+#name: deps
+dependencies:
+    - git::korge-spine::korlibs/korge-spine::/korge-spine::3e0d4e82fdae9f49b07e65164f2445ab57fe391e
+    #- git::korge-spine::korlibs/korge-spine::/korge-spine::v0.0.1
+    #- ../korge-spine
