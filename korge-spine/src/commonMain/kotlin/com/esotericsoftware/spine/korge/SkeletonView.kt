@@ -10,14 +10,13 @@ import com.soywiz.kds.*
 import com.soywiz.kds.iterators.*
 import com.soywiz.klock.*
 import com.soywiz.kmem.*
-import com.soywiz.korge.debug.*
 import com.soywiz.korge.render.*
 import com.soywiz.korge.view.*
+import com.soywiz.korge.view.property.*
 import com.soywiz.korim.bitmap.*
 import com.soywiz.korim.color.*
 import com.soywiz.korma.geom.BoundsBuilder
 import com.soywiz.korma.geom.Rectangle
-import com.soywiz.korui.*
 
 inline fun Container.skeletonView(skeleton: Skeleton, animationState: AnimationState, block: @ViewDslMarker SkeletonView.() -> Unit = {})
     = SkeletonView(skeleton, animationState).addTo(this, block)
@@ -44,10 +43,12 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
 
     var running = true
 
+    @ViewProperty
     fun play() {
         running = true
     }
 
+    @ViewProperty
     fun stop() {
         running = false
     }
@@ -338,25 +339,46 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
 
     val currentMainAnimation get() = animationState?.tracks?.first()?.animation
 
-    override fun buildDebugComponent(views: Views, container: UiContainer) {
-        container.uiCollapsibleSection("Animation") {
-            addChild(UiRowEditableValue(app, "animation", UiListEditableValue(app, { skeleton.data.animations.map { it.name } }, ObservableProperty(
-                name = "animation",
-                internalSet = {  animationName ->
-                    val animation = skeleton.data.findAnimation(animationName)
-                    if (animation != null) {
-                        this@SkeletonView.play()
-                        animationState?.setAnimation(0, animation, true)
-                        stage?.views?.debugHightlightView(this@SkeletonView)
-                    }
-                },
-                internalGet = { currentMainAnimation?.name ?: "default" }
-            ))))
-            button("play").onClick { play() }
-            button("stop").onClick { stop() }
+    @Suppress("unused")
+    object AnimationNameProvider {
+        fun getValues(view: SkeletonView): List<String> {
+            return view.skeleton.data.animations.map { it.name }
         }
-        super.buildDebugComponent(views, container)
     }
+
+    @ViewProperty
+    @ViewPropertyProvider(AnimationNameProvider::class)
+    @Suppress("unused")
+    var animationName: String
+        get() = currentMainAnimation?.name ?: "default"
+        set(animationName) {
+            val animation = skeleton.data.findAnimation(animationName)
+            if (animation != null) {
+                this@SkeletonView.play()
+                animationState?.setAnimation(0, animation, true)
+                stage?.views?.debugHightlightView(this@SkeletonView)
+            }
+        }
+
+    //override fun buildDebugComponent(views: Views, container: UiContainer) {
+    //    container.uiCollapsibleSection("Animation") {
+    //        addChild(UiRowEditableValue(app, "animation", UiListEditableValue(app, { skeleton.data.animations.map { it.name } }, ObservableProperty(
+    //            name = "animation",
+    //            internalSet = {  animationName ->
+    //                val animation = skeleton.data.findAnimation(animationName)
+    //                if (animation != null) {
+    //                    this@SkeletonView.play()
+    //                    animationState?.setAnimation(0, animation, true)
+    //                    stage?.views?.debugHightlightView(this@SkeletonView)
+    //                }
+    //            },
+    //            internalGet = { currentMainAnimation?.name ?: "default" }
+    //        ))))
+    //        button("play").onClick { play() }
+    //        button("stop").onClick { stop() }
+    //    }
+    //    super.buildDebugComponent(views, container)
+    //}
 
     companion object {
         private val quadTriangles = shortArrayOf(0, 1, 2, 2, 3, 0)

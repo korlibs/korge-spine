@@ -2,13 +2,11 @@ package com.esotericsoftware.spine.korge
 
 import com.esotericsoftware.spine.*
 import com.esotericsoftware.spine.ext.*
-import com.soywiz.korge.debug.*
 import com.soywiz.korge.render.*
 import com.soywiz.korge.view.*
 import com.soywiz.korim.atlas.*
 import com.soywiz.korim.format.ImageDecodingProps
 import com.soywiz.korio.file.*
-import com.soywiz.korui.*
 
 class SpineViewRef() : Container(), ViewLeaf, ViewFileRef by ViewFileRef.Mixin() {
     private var skeletonView: SkeletonView? = null
@@ -49,12 +47,12 @@ class SpineViewRef() : Container(), ViewLeaf, ViewFileRef by ViewFileRef.Mixin()
         super.renderInternal(ctx)
     }
 
-    override fun buildDebugComponent(views: Views, container: UiContainer) {
-        container.uiCollapsibleSection("Spine") {
-            uiEditableValue(::sourceFile, kind = UiTextEditableValue.Kind.FILE(views.currentVfs) {
-                it.extensionLC == "skel"
-            })
-        }
-        super.buildDebugComponent(views, container)
-    }
+    //override fun buildDebugComponent(views: Views, container: UiContainer) {
+    //    container.uiCollapsibleSection("Spine") {
+    //        uiEditableValue(::sourceFile, kind = UiTextEditableValue.Kind.FILE(views.currentVfs) {
+    //            it.extensionLC == "skel"
+    //        })
+    //    }
+    //    super.buildDebugComponent(views, container)
+    //}
 }

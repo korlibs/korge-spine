@@ -3,3 +3,6 @@
 /build
 /deps
 /modules
+/local.properties
+/korge.keystore
+/src/main
