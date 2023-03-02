@@ -377,7 +377,7 @@ class Bone : Updatable {
         }
     }
 
-    fun getWorldTransform(worldTransform: Matrix3D): Matrix3D {
+    fun getWorldTransform(worldTransform: MMatrix3D): MMatrix3D {
         // @TODO: Ensure this is right
         worldTransform.setRows3x3(
             a, b, worldX,

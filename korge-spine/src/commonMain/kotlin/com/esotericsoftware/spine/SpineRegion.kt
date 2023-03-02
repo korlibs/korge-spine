@@ -17,9 +17,9 @@ class SpineRegion(val entry: Atlas.Entry) {
     val v2: Float = if (rotate) bmpSlice.tlY else coords.brY
     var offsetX: Float = (entry.info.virtFrame?.x ?: 0).toFloat()
     var offsetY: Float = (entry.info.virtFrame?.y ?: 0).toFloat()
-    var originalWidth: Float = (entry.info.virtFrame?.w ?: entry.info.frame.w).toFloat()
-    var originalHeight: Float = (entry.info.virtFrame?.h ?: entry.info.frame.h).toFloat()
-    var packedWidth: Float = entry.info.frame.w.toFloat()
-    var packedHeight: Float = entry.info.frame.h.toFloat()
+    var originalWidth: Float = (entry.info.virtFrame?.width ?: entry.info.frame.width).toFloat()
+    var originalHeight: Float = (entry.info.virtFrame?.height ?: entry.info.frame.height).toFloat()
+    var packedWidth: Float = entry.info.frame.width.toFloat()
+    var packedHeight: Float = entry.info.frame.height.toFloat()
     var degrees: Int = if (rotate) 90 else 0
 }

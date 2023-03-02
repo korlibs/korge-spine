@@ -4,7 +4,7 @@ import com.esotericsoftware.spine.*
 import com.esotericsoftware.spine.korge.*
 import com.soywiz.korma.geom.*
 
-fun Animation.getAnimationMaxBounds(skeletonData: SkeletonData, out: Rectangle = Rectangle()): Rectangle {
+fun Animation.getAnimationMaxBounds(skeletonData: SkeletonData, out: MRectangle = MRectangle()): MRectangle {
     val animation = this
     val skeleton = Skeleton(skeletonData)
     val skeletonView = SkeletonView(skeleton, null)

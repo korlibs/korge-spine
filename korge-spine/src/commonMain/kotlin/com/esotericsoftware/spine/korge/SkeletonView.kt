@@ -15,8 +15,7 @@ import com.soywiz.korge.view.*
 import com.soywiz.korge.view.property.*
 import com.soywiz.korim.bitmap.*
 import com.soywiz.korim.color.*
-import com.soywiz.korma.geom.BoundsBuilder
-import com.soywiz.korma.geom.Rectangle
+import com.soywiz.korma.geom.*
 
 inline fun Container.skeletonView(skeleton: Skeleton, animationState: AnimationState, block: @ViewDslMarker SkeletonView.() -> Unit = {})
     = SkeletonView(skeleton, animationState).addTo(this, block)
@@ -307,7 +306,6 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
                 batch.addIndexRelative(triangle[trianglesOffset + n].toInt())
             }
             val colorMul = this.renderColorMul
-            val colorAdd = this.renderColorAdd
             for (n in 0 until vertexCount) {
                 val x = verticesData[verticesOffset + n * vertexSize + 0]
                 val y = -verticesData[verticesOffset + n * vertexSize + 1]
@@ -316,8 +314,8 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
                 val realX = transform.transformXf(x, y)
                 val realY = transform.transformYf(x, y)
                 batch.addVertex(
-                    realX, realY, u, v, colorMul, colorAdd,
-                    premultiplied = premultiplied, wrap = false
+                    realX, realY, u, v, colorMul,
+                    //colorAdd, premultiplied = premultiplied, wrap = false
                 )
             }
 
@@ -327,7 +325,7 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
 
     private val bb = BoundsBuilder()
 
-    override fun getLocalBoundsInternal(out: Rectangle) {
+    override fun getLocalBoundsInternal(out: MRectangle) {
         bb.reset()
         updateAdjustSkeleton()
         renderSkeleton(null, skeleton, bb)
