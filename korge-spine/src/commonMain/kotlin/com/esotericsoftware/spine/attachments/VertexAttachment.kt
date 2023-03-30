@@ -34,7 +34,7 @@ import com.esotericsoftware.spine.Skeleton
 import com.esotericsoftware.spine.Slot
 import com.esotericsoftware.spine.utils.*
 import com.esotericsoftware.spine.utils.SpineUtils.arraycopy
-import com.soywiz.korio.concurrent.atomic.*
+import korlibs.io.concurrent.atomic.*
 import kotlin.jvm.*
 import kotlin.native.concurrent.*
 

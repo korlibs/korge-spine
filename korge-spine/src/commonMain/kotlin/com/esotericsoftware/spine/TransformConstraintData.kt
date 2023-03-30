@@ -29,7 +29,7 @@
 
 package com.esotericsoftware.spine
 
-import com.soywiz.kds.*
+import korlibs.datastructure.*
 
 /** Stores the setup pose for a [TransformConstraint].
  *

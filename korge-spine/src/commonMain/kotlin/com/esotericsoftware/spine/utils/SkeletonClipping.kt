@@ -31,9 +31,9 @@ package com.esotericsoftware.spine.utils
 
 import com.esotericsoftware.spine.Slot
 import com.esotericsoftware.spine.attachments.ClippingAttachment
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
-import com.soywiz.korim.color.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
+import korlibs.image.color.*
 
 class SkeletonClipping {
     private val triangulator = SpineTriangulator()

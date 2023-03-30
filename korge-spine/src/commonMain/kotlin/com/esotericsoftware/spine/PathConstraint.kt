@@ -34,8 +34,8 @@ import com.esotericsoftware.spine.PathConstraintData.RotateMode
 import com.esotericsoftware.spine.PathConstraintData.SpacingMode
 import com.esotericsoftware.spine.attachments.PathAttachment
 import com.esotericsoftware.spine.utils.*
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 
 /** Stores the current pose for a path constraint. A path constraint adjusts the rotation, translation, and scale of the
  * constrained bones so they follow a [PathAttachment].

@@ -29,7 +29,7 @@
 
 package com.esotericsoftware.spine
 
-import com.soywiz.korim.color.RGBAf
+import korlibs.image.color.RGBAf
 
 /** Stores the setup pose for a [Slot].  */
 class SlotData(

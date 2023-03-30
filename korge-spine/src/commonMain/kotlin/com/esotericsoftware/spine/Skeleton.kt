@@ -29,7 +29,7 @@
 
 package com.esotericsoftware.spine
 
-import com.soywiz.korim.color.RGBAf
+import korlibs.image.color.RGBAf
 
 import com.esotericsoftware.spine.attachments.Attachment
 import com.esotericsoftware.spine.attachments.MeshAttachment
@@ -39,8 +39,8 @@ import com.esotericsoftware.spine.utils.*
 import com.esotericsoftware.spine.utils.SpineUtils.arraycopy
 import com.esotericsoftware.spine.utils.SpineUtils.cosDeg
 import com.esotericsoftware.spine.utils.SpineUtils.sinDeg
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 import kotlin.js.*
 import kotlin.math.*
 

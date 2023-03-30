@@ -1,9 +1,9 @@
 package com.esotericsoftware.spine
 
-import com.soywiz.korim.atlas.*
-import com.soywiz.korim.bitmap.*
-import com.soywiz.korim.format.ImageOrientation
-import com.soywiz.korma.geom.slice.*
+import korlibs.image.atlas.*
+import korlibs.image.bitmap.*
+import korlibs.image.format.ImageOrientation
+import korlibs.math.geom.slice.*
 
 class SpineRegion(val entry: Atlas.Entry) {
     val bmpSlice: BmpSlice = entry.slice

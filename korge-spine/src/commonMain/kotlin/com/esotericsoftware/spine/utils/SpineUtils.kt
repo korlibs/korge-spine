@@ -29,7 +29,7 @@
 
 package com.esotericsoftware.spine.utils
 
-import com.soywiz.kds.*
+import korlibs.datastructure.*
 
 object SpineUtils {
     const val PI = 3.1415927f
@@ -103,26 +103,26 @@ object SpineUtils {
      */
 
     inline fun arraycopy(src: ByteArray, srcPos: Int, dest: ByteArray, destPos: Int, length: Int) {
-        com.soywiz.kmem.arraycopy(src, srcPos, dest, destPos, length)
+        korlibs.memory.arraycopy(src, srcPos, dest, destPos, length)
     }
 
     inline fun arraycopy(src: ShortArray, srcPos: Int, dest: ShortArray, destPos: Int, length: Int) {
-        com.soywiz.kmem.arraycopy(src, srcPos, dest, destPos, length)
+        korlibs.memory.arraycopy(src, srcPos, dest, destPos, length)
     }
 
     inline fun arraycopy(src: IntArray, srcPos: Int, dest: IntArray, destPos: Int, length: Int) {
-        com.soywiz.kmem.arraycopy(src, srcPos, dest, destPos, length)
+        korlibs.memory.arraycopy(src, srcPos, dest, destPos, length)
     }
 
     inline fun arraycopy(src: FloatArray, srcPos: Int, dest: FloatArray, destPos: Int, length: Int) {
-        com.soywiz.kmem.arraycopy(src, srcPos, dest, destPos, length)
+        korlibs.memory.arraycopy(src, srcPos, dest, destPos, length)
     }
 
     inline fun <T> arraycopy(src: Array<T>, srcPos: Int, dest: Array<T>, destPos: Int, length: Int) {
-        com.soywiz.kmem.arraycopy(src, srcPos, dest, destPos, length)
+        korlibs.memory.arraycopy(src, srcPos, dest, destPos, length)
     }
 
     inline fun <T> arraycopy(src: FastArrayList<T>, srcPos: Int, dest: FastArrayList<T>, destPos: Int, length: Int) {
-        com.soywiz.kmem.arraycopy(src, srcPos, dest, destPos, length)
+        korlibs.memory.arraycopy(src, srcPos, dest, destPos, length)
     }
 }

@@ -1,7 +1,7 @@
 package com.esotericsoftware.spine.utils
 
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 
 internal class SpineJsonValue {
     enum class ValueType { OBJECT, ARRAY, STRING, DOUBLE, BOOLEAN, NULL }

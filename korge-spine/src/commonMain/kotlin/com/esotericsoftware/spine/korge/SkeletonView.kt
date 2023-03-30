@@ -4,18 +4,18 @@ import com.esotericsoftware.spine.*
 import com.esotericsoftware.spine.BlendMode
 import com.esotericsoftware.spine.attachments.*
 import com.esotericsoftware.spine.effect.*
-import com.soywiz.korim.color.RGBAf
+import korlibs.image.color.RGBAf
 import com.esotericsoftware.spine.utils.*
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
-import com.soywiz.klock.*
-import com.soywiz.kmem.*
-import com.soywiz.korge.render.*
-import com.soywiz.korge.view.*
-import com.soywiz.korge.view.property.*
-import com.soywiz.korim.bitmap.*
-import com.soywiz.korim.color.*
-import com.soywiz.korma.geom.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
+import korlibs.time.*
+import korlibs.memory.*
+import korlibs.korge.render.*
+import korlibs.korge.view.*
+import korlibs.korge.view.property.*
+import korlibs.image.bitmap.*
+import korlibs.image.color.*
+import korlibs.math.geom.*
 
 inline fun Container.skeletonView(skeleton: Skeleton, animationState: AnimationState, block: @ViewDslMarker SkeletonView.() -> Unit = {})
     = SkeletonView(skeleton, animationState).addTo(this, block)
@@ -89,7 +89,7 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
 
     private var currentSpineBlendMode: BlendMode? = null
 
-    private fun renderSkeleton(ctx: RenderContext?, skeleton: Skeleton, bb: BoundsBuilder?) {
+    private fun renderSkeleton(ctx: RenderContext?, skeleton: Skeleton, bb: MBoundsBuilder?) {
         val tempPosition = this.temp
         val tempUV = this.temp2
         val tempLight1 = this.temp3
@@ -276,7 +276,7 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
         }
     }
 
-    private fun draw(bb: BoundsBuilder?, ctx: RenderContext?, texture: Bitmap, verticesData: FloatArray, verticesOffset: Int, verticesCount: Int, triangle: ShortArray, trianglesOffset: Int, trianglesCount: Int, blendMode: BlendMode?) {
+    private fun draw(bb: MBoundsBuilder?, ctx: RenderContext?, texture: Bitmap, verticesData: FloatArray, verticesOffset: Int, verticesCount: Int, triangle: ShortArray, trianglesOffset: Int, trianglesCount: Int, blendMode: BlendMode?) {
         val vertexSize = 5
         val vertexCount = verticesCount / vertexSize
         if (bb != null) {
@@ -290,10 +290,10 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
         }
         ctx?.useBatcher { batch ->
             val viewBlendMode = when (blendMode) {
-                BlendMode.normal -> com.soywiz.korge.view.BlendMode.NORMAL
-                BlendMode.additive -> com.soywiz.korge.view.BlendMode.ADD
-                BlendMode.multiply -> com.soywiz.korge.view.BlendMode.MULTIPLY
-                BlendMode.screen -> com.soywiz.korge.view.BlendMode.SCREEN
+                BlendMode.normal -> korlibs.korge.view.BlendMode.NORMAL
+                BlendMode.additive -> korlibs.korge.view.BlendMode.ADD
+                BlendMode.multiply -> korlibs.korge.view.BlendMode.MULTIPLY
+                BlendMode.screen -> korlibs.korge.view.BlendMode.SCREEN
                 null -> this.blendMode
             }
 
@@ -311,8 +311,8 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
                 val y = -verticesData[verticesOffset + n * vertexSize + 1]
                 val u = verticesData[verticesOffset + n * vertexSize + 3]
                 val v = verticesData[verticesOffset + n * vertexSize + 4]
-                val realX = transform.transformXf(x, y)
-                val realY = transform.transformYf(x, y)
+                val realX = transform.transformX(x, y)
+                val realY = transform.transformY(x, y)
                 batch.addVertex(
                     realX, realY, u, v, colorMul,
                     //colorAdd, premultiplied = premultiplied, wrap = false
@@ -323,13 +323,13 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
         }
     }
 
-    private val bb = BoundsBuilder()
+    private val bb = MBoundsBuilder()
 
-    override fun getLocalBoundsInternal(out: MRectangle) {
+    override fun getLocalBoundsInternal(): Rectangle {
         bb.reset()
         updateAdjustSkeleton()
         renderSkeleton(null, skeleton, bb)
-        bb.getBounds(out)
+        return bb.getBounds().immutable
     }
 
     // @TODO: We shouldn't do this

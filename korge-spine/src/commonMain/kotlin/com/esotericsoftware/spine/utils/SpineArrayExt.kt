@@ -1,6 +1,6 @@
 package com.esotericsoftware.spine.utils
 
-import com.soywiz.kds.*
+import korlibs.datastructure.*
 import kotlin.math.*
 
 internal fun FloatArrayList.setSize(size: Int): FloatArray { this.size = size; return this.data }

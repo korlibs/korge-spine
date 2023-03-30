@@ -2,11 +2,11 @@ package com.esotericsoftware.spine.korge
 
 import com.esotericsoftware.spine.*
 import com.esotericsoftware.spine.ext.*
-import com.soywiz.korge.render.*
-import com.soywiz.korge.view.*
-import com.soywiz.korim.atlas.*
-import com.soywiz.korim.format.ImageDecodingProps
-import com.soywiz.korio.file.*
+import korlibs.korge.render.*
+import korlibs.korge.view.*
+import korlibs.image.atlas.*
+import korlibs.image.format.ImageDecodingProps
+import korlibs.io.file.*
 
 class SpineViewRef() : Container(), ViewLeaf, ViewFileRef by ViewFileRef.Mixin() {
     private var skeletonView: SkeletonView? = null

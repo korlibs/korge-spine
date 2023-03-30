@@ -3,28 +3,28 @@ import com.esotericsoftware.spine.AnimationStateData
 import com.esotericsoftware.spine.Skeleton
 import com.esotericsoftware.spine.korge.skeletonView
 import com.esotericsoftware.spine.readSkeletonBinary
-import com.soywiz.korge.scene.ScaledScene
-import com.soywiz.korge.scene.Scene
-import com.soywiz.korge.view.SContainer
-import com.soywiz.korge.view.centered
-import com.soywiz.korge.view.container
-import com.soywiz.korge.view.filter.DropshadowFilter
-import com.soywiz.korge.view.filter.filter
-import com.soywiz.korge.view.filter.filters
-import com.soywiz.korge.view.position
-import com.soywiz.korge.view.scale
-import com.soywiz.korge.view.solidRect
-import com.soywiz.korim.atlas.readAtlas
-import com.soywiz.korim.bitmap.Bitmap32
-import com.soywiz.korim.bitmap.asumePremultiplied
-import com.soywiz.korim.bitmap.computePsnr
-import com.soywiz.korim.color.Colors
-import com.soywiz.korim.format.ImageDecodingProps
-import com.soywiz.korim.format.PNG
-import com.soywiz.korim.format.readBitmap
-import com.soywiz.korim.format.writeTo
-import com.soywiz.korio.file.std.localVfs
-import com.soywiz.korio.file.std.resourcesVfs
+import korlibs.korge.scene.ScaledScene
+import korlibs.korge.scene.Scene
+import korlibs.korge.view.SContainer
+import korlibs.korge.view.centered
+import korlibs.korge.view.container
+import korlibs.korge.view.filter.DropshadowFilter
+import korlibs.korge.view.filter.filter
+import korlibs.korge.view.filter.filters
+import korlibs.korge.view.position
+import korlibs.korge.view.scale
+import korlibs.korge.view.solidRect
+import korlibs.image.atlas.readAtlas
+import korlibs.image.bitmap.Bitmap32
+import korlibs.image.bitmap.asumePremultiplied
+import korlibs.image.bitmap.computePsnr
+import korlibs.image.color.Colors
+import korlibs.image.format.ImageDecodingProps
+import korlibs.image.format.PNG
+import korlibs.image.format.readBitmap
+import korlibs.image.format.writeTo
+import korlibs.io.file.std.localVfs
+import korlibs.io.file.std.resourcesVfs
 
 class MainSpine : ScaledScene(1280, 720) {
     override suspend fun SContainer.sceneMain() {
@@ -72,7 +72,7 @@ class MainSpine : ScaledScene(1280, 720) {
         container {
             val (skeleton, state) = createSkel()
             //speed = 2.0
-            speed = 0.5
+            speed = 0.5f
             scale(2.0)
             position(200, 700)
             skeletonView(skeleton, state).also { it.debugAnnotate = true }
@@ -83,7 +83,7 @@ class MainSpine : ScaledScene(1280, 720) {
         container {
             val (skeleton, state) = createSkel()
             //speed = 2.0
-            speed = 1.0
+            speed = 1.0f
             scale(2.0)
             position(900, 700)
             skeletonView(skeleton, state).also { it.debugAnnotate = true }

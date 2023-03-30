@@ -35,11 +35,11 @@ import com.esotericsoftware.spine.PathConstraintData.*
 import com.esotericsoftware.spine.attachments.*
 import com.esotericsoftware.spine.utils.*
 import com.esotericsoftware.spine.utils.SpineUtils.arraycopy
-import com.soywiz.kds.*
-import com.soywiz.korim.atlas.*
-import com.soywiz.korim.color.*
-import com.soywiz.korio.file.*
-import com.soywiz.korio.serialization.json.*
+import korlibs.datastructure.*
+import korlibs.image.atlas.*
+import korlibs.image.color.*
+import korlibs.io.file.*
+import korlibs.io.serialization.json.*
 import kotlin.math.*
 
 /** Loads skeleton data in the Spine JSON format.

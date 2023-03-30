@@ -38,8 +38,8 @@ import com.esotericsoftware.spine.utils.SpineUtils.cosDeg
 import com.esotericsoftware.spine.utils.SpineUtils.radDeg
 import com.esotericsoftware.spine.utils.SpineUtils.sin
 import com.esotericsoftware.spine.utils.SpineUtils.sinDeg
-import com.soywiz.kds.*
-import com.soywiz.korma.geom.*
+import korlibs.datastructure.*
+import korlibs.math.geom.*
 
 /** Stores a bone's current pose.
  *

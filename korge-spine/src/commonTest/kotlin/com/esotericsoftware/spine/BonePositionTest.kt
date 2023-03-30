@@ -3,15 +3,15 @@ package com.esotericsoftware.spine
 import com.esotericsoftware.spine.Animation.MixBlend
 import com.esotericsoftware.spine.Animation.MixDirection
 import com.esotericsoftware.spine.attachments.*
-import com.soywiz.korio.async.suspendTest
-import com.soywiz.korio.file.std.resourcesVfs
-import com.soywiz.korio.util.OS
+import korlibs.io.async.suspendTest
+import korlibs.io.file.std.resourcesVfs
+import korlibs.memory.Platform
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class BonePositionTest {
     @Test
-    fun test() = suspendTest({ !OS.isJs && !OS.isAndroid }) {
+    fun test() = suspendTest({ !Platform.isJs && !Platform.isAndroid }) {
         val resource = resourcesVfs["spineboy/spineboy-ess.json"]
         val json = SkeletonJson(object : AttachmentLoader { })
         val skeletonData = json.readSkeletonData(resource)

@@ -31,7 +31,7 @@ package com.esotericsoftware.spine.attachments
 
 import com.esotericsoftware.spine.*
 
-import com.soywiz.korim.atlas.*
+import korlibs.image.atlas.*
 
 /** An [AttachmentLoader] that configures attachments using texture regions from an [Atlas].
  *
