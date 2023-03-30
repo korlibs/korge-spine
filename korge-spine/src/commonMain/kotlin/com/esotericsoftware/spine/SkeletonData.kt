@@ -29,8 +29,8 @@
 
 package com.esotericsoftware.spine
 
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 
 /** Stores the setup pose and all of the stateless data for a skeleton.
  *

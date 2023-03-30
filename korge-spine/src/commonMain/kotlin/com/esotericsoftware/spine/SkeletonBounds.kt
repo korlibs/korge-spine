@@ -31,7 +31,7 @@ package com.esotericsoftware.spine
 
 import com.esotericsoftware.spine.attachments.BoundingBoxAttachment
 import com.esotericsoftware.spine.utils.*
-import com.soywiz.kds.*
+import korlibs.datastructure.*
 import kotlin.math.*
 
 /** Collects each visible [BoundingBoxAttachment] and computes the world vertices for its polygon. The polygon vertices are

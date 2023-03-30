@@ -29,7 +29,7 @@
 
 package com.esotericsoftware.spine.utils
 
-import com.soywiz.kds.*
+import korlibs.datastructure.*
 import kotlin.math.*
 
 internal class SpineTriangulator {

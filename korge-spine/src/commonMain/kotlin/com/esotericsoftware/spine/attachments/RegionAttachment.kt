@@ -34,7 +34,7 @@ import com.esotericsoftware.spine.SpineRegion
 import com.esotericsoftware.spine.Bone
 import com.esotericsoftware.spine.utils.*
 import com.esotericsoftware.spine.utils.SpineUtils.arraycopy
-import com.soywiz.korim.color.*
+import korlibs.image.color.*
 
 /** An attachment that displays a textured quadrilateral.
  *

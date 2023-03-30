@@ -32,8 +32,8 @@ package com.esotericsoftware.spine
 import com.esotericsoftware.spine.attachments.Attachment
 import com.esotericsoftware.spine.attachments.MeshAttachment
 import com.esotericsoftware.spine.utils.*
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 
 /** Stores attachments by slot index and attachment name.
  *

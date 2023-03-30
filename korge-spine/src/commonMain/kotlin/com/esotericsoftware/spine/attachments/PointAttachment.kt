@@ -33,7 +33,7 @@ import com.esotericsoftware.spine.utils.SpineUtils.cosDeg
 import com.esotericsoftware.spine.utils.SpineUtils.radDeg
 import com.esotericsoftware.spine.utils.SpineUtils.sinDeg
 
-import com.soywiz.korim.color.RGBAf
+import korlibs.image.color.RGBAf
 import com.esotericsoftware.spine.utils.SpineVector2
 import com.esotericsoftware.spine.Bone
 

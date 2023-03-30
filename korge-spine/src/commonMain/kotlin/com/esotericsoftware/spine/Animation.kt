@@ -34,8 +34,8 @@ import com.esotericsoftware.spine.Animation.MixDirection.*
 import com.esotericsoftware.spine.attachments.*
 import com.esotericsoftware.spine.utils.*
 import com.esotericsoftware.spine.utils.SpineUtils.arraycopy
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 import kotlin.math.*
 
 /** A simple container for a list of timelines and a name.  */

@@ -2,8 +2,8 @@ package com.esotericsoftware.spine
 
 import com.esotericsoftware.spine.utils.SpineUtils
 import com.esotericsoftware.spine.utils.SpineVector2
-import com.soywiz.korma.geom.Matrix3D
-import com.soywiz.korma.geom.Vector3D
+import korlibs.math.geom.MMatrix3D
+import korlibs.math.geom.MVector3D
 import kotlin.math.absoluteValue
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -29,8 +29,8 @@ class BoneTest {
         val oneZeroToWorld = bone.localToWorld(SpineVector2(1.0f, 0.0f))
         assertClose(0.0f, oneZeroToWorld.x)
         assertClose(1.0f, oneZeroToWorld.y)
-        val matrix3D = bone.getWorldTransform(Matrix3D())
-        val transformWithMatrix = Vector3D(1.0f, 0.0f, 0.0f).transform(matrix3D)
+        val matrix3D = bone.getWorldTransform(MMatrix3D())
+        val transformWithMatrix = MVector3D(1.0f, 0.0f, 0.0f).transform(matrix3D)
         assertClose(oneZeroToWorld.x, transformWithMatrix.x)
         assertClose(oneZeroToWorld.y, transformWithMatrix.y)
     }

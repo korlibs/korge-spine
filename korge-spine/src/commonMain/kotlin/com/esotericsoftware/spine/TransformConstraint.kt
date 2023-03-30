@@ -36,8 +36,8 @@ import com.esotericsoftware.spine.utils.SpineUtils.cos
 import com.esotericsoftware.spine.utils.SpineUtils.degRad
 import com.esotericsoftware.spine.utils.SpineUtils.sin
 import com.esotericsoftware.spine.utils.SpineVector2
-import com.soywiz.kds.*
-import com.soywiz.kds.iterators.*
+import korlibs.datastructure.*
+import korlibs.datastructure.iterators.*
 
 /** Stores the current pose for a transform constraint. A transform constraint adjusts the world transform of the constrained
  * bones to match that of the target bone.

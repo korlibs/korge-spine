@@ -2,19 +2,20 @@ package com.esotericsoftware.spine
 
 import com.esotericsoftware.spine.*
 import com.esotericsoftware.spine.korge.*
-import com.soywiz.korge.*
-import com.soywiz.korge.view.*
-import com.soywiz.korim.atlas.*
-import com.soywiz.korim.color.*
-import com.soywiz.korio.async.*
-import com.soywiz.korio.file.std.*
-import com.soywiz.korge.render.*
-import com.soywiz.korio.util.*
+import korlibs.korge.*
+import korlibs.korge.view.*
+import korlibs.image.atlas.*
+import korlibs.image.color.*
+import korlibs.io.async.*
+import korlibs.io.file.std.*
+import korlibs.korge.render.*
+import korlibs.io.util.*
+import korlibs.memory.Platform
 import kotlin.test.*
 
 class SampleTest {
     @Test
-    fun test() = suspendTest({ !OS.isJs && !OS.isAndroid }) {
+    fun test() = suspendTest({ !Platform.isJs && !Platform.isAndroid }) {
         val atlas = resourcesVfs["spineboy/spineboy-pma.atlas"].readAtlas()
         //val skeletonData = resourcesVfs["spineboy/spineboy-pro.json"].readSkeletonJson(atlas, 0.6f)
         val skeletonData = resourcesVfs["spineboy/spineboy-pro.skel"].readSkeletonBinary(atlas, 0.6f)
@@ -46,7 +47,7 @@ class SampleTest {
     }
 
     @Test
-    fun testDukeJson() = suspendTest({ !OS.isJs && !OS.isAndroid }) {
+    fun testDukeJson() = suspendTest({ !Platform.isJs && !Platform.isAndroid }) {
         val atlas = resourcesVfs["duke/3.8/Duke.atlas"].readAtlas()
         val skeletonData = resourcesVfs["duke/3.8/Duke.json"].readSkeletonJson(atlas, 0.6f)
         val skeleton = Skeleton(skeletonData)
