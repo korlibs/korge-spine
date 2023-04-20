@@ -29,14 +29,14 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
         }
     }
 
-    override var ratio: Double = 0.0
+    override var ratio: Float = 0f
         set(value) {
             field = value
             running = false
             animationState?.tracks?.filterNotNull()?.fastForEach {
                 //println("TRACK: it.trackTime=${it.trackTime}, value=${value}, it.animationTime=${it.animationTime}")
 
-                it.trackTime = value.clamp01().convertRange(0.0, 1.0, it.animationStart.toDouble(), it.animationEnd.toDouble() - 0.01).toFloat()
+                it.trackTime = value.clamp01().convertRange(0f, 1f, it.animationStart, it.animationEnd - 0.01f)
             }
         }
 
