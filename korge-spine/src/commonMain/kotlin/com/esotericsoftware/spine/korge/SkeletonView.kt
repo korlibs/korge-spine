@@ -338,10 +338,9 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
     val currentMainAnimation get() = animationState?.tracks?.first()?.animation
 
     @Suppress("unused")
-    object AnimationNameProvider {
-        fun getValues(view: SkeletonView): List<String> {
-            return view.skeleton.data.animations.map { it.name }
-        }
+    object AnimationNameProvider : ViewPropertyProvider.ListImpl<SkeletonView, String>() {
+        override fun listProvider(instance: SkeletonView): List<String> =
+            instance.skeleton.data.animations.map { it.name }
     }
 
     @ViewProperty
