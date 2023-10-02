@@ -10,7 +10,7 @@ import korlibs.io.async.*
 import korlibs.io.file.std.*
 import korlibs.korge.render.*
 import korlibs.io.util.*
-import korlibs.memory.Platform
+import korlibs.platform.*
 import kotlin.test.*
 
 class SampleTest {
