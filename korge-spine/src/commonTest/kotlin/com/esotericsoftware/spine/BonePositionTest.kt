@@ -5,7 +5,7 @@ import com.esotericsoftware.spine.Animation.MixDirection
 import com.esotericsoftware.spine.attachments.*
 import korlibs.io.async.suspendTest
 import korlibs.io.file.std.resourcesVfs
-import korlibs.memory.Platform
+import korlibs.platform.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

@@ -72,7 +72,7 @@ class MainSpine : ScaledScene(1280, 720) {
         container {
             val (skeleton, state) = createSkel()
             //speed = 2.0
-            speed = 0.5f
+            speed = 0.5
             scale(2.0)
             position(200, 700)
             skeletonView(skeleton, state).also { it.debugAnnotate = true }
@@ -83,7 +83,7 @@ class MainSpine : ScaledScene(1280, 720) {
         container {
             val (skeleton, state) = createSkel()
             //speed = 2.0
-            speed = 1.0f
+            speed = 1.0
             scale(2.0)
             position(900, 700)
             skeletonView(skeleton, state).also { it.debugAnnotate = true }

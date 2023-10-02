@@ -15,6 +15,7 @@ import korlibs.korge.view.*
 import korlibs.korge.view.property.*
 import korlibs.image.bitmap.*
 import korlibs.image.color.*
+import korlibs.math.*
 import korlibs.math.geom.*
 
 inline fun Container.skeletonView(skeleton: Skeleton, animationState: AnimationState, block: @ViewDslMarker SkeletonView.() -> Unit = {})
@@ -29,14 +30,14 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
         }
     }
 
-    override var ratio: Float = 0f
+    override var ratio: Double = 0.0
         set(value) {
             field = value
             running = false
             animationState?.tracks?.filterNotNull()?.fastForEach {
                 //println("TRACK: it.trackTime=${it.trackTime}, value=${value}, it.animationTime=${it.animationTime}")
 
-                it.trackTime = value.clamp01().convertRange(0f, 1f, it.animationStart, it.animationEnd - 0.01f)
+                it.trackTime = value.toFloat().clamp01().convertRange(0f, 1f, it.animationStart, it.animationEnd - 0.01f)
             }
         }
 
