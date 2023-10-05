@@ -17,6 +17,7 @@ import korlibs.image.bitmap.*
 import korlibs.image.color.*
 import korlibs.math.*
 import korlibs.math.geom.*
+import korlibs.math.interpolation.*
 
 inline fun Container.skeletonView(skeleton: Skeleton, animationState: AnimationState, block: @ViewDslMarker SkeletonView.() -> Unit = {})
     = SkeletonView(skeleton, animationState).addTo(this, block)
@@ -30,7 +31,8 @@ class SkeletonView(val skeleton: Skeleton, val animationState: AnimationState?) 
         }
     }
 
-    override var ratio: Double = 0.0
+    @ViewProperty
+    var ratio: Ratio = Ratio.ZERO
         set(value) {
             field = value
             running = false
